@@ -11,16 +11,13 @@ class JamfAPI {
         $this->key = $key;
     }
 
-    public function listApplications(): array {
+    public function applications(): array {
         $options = array(
             CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
             CURLOPT_USERPWD => $this->networkID . ":" . $this->key,
             CURLOPT_CAINFO => __DIR__ . "/Amazon Root CA 1.crt"
         );
 
-        $list_applications = CurlHelper::get($this->base_url . "apps", $options);
-        $list_applications[1] = json_decode($list_applications[1]);
-
-        return $list_applications;
+        return CurlHelper::get($this->base_url . "apps", $options);
     }
 }
