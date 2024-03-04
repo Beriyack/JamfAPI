@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../../JamfAPI/JamfAPI.php";
+require_once __DIR__ . "/JamfAPI.php";
 $networdID = "my_networdID";
 $key = "my_key";
 
