@@ -25,15 +25,16 @@ class JamfAPI {
      * Récupére les informations
      * 
      * @param string $type
+     * @return array Tableau contenant les informations
      */
-    private function getData(string $type) : array {
+    private function getData(string $type = "apps") : array {
         return CurlHelper::get($this->base_url . $type, $this->options);
     }
 
     /**
      * Liste des applications
      *
-     * Cette fonction retourne un tableau contenant les applications disponibles.
+     * Cette fonction retourne un tableau contenant les applications.
      *
      * @return array Tableau contenant les applications
      */
@@ -58,5 +59,16 @@ class JamfAPI {
 
     public function devices_groups(): array {
         return $this->getData("devices/groups");
+    }
+
+    /**
+     * Liste des localisations
+     * 
+     * Cette fonction retourne un tablea contenant les localisations.
+     * 
+     * @return array Tableau contenant les localisations
+     */
+    public function locations(): array {
+        return $this->getData("locations");
     }
 }
