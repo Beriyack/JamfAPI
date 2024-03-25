@@ -21,14 +21,33 @@ class JamfAPI {
         );
     }
 
+    /**
+     * Récupére les informations
+     * 
+     * @param string $type
+     */
     private function getData(string $type) : array {
         return CurlHelper::get($this->base_url . $type, $this->options);
     }
 
+    /**
+     * Liste des applications
+     *
+     * Cette fonction retourne un tableau contenant les applications disponibles.
+     *
+     * @return array Tableau contenant les applications
+     */
     public function applications(): array {
         return $this->getData("apps");
     }
     
+    /**
+     * Liste des iPads
+     *
+     * Cette fonction retourne un tableau contenant les iPads.
+     *
+     * @return array Tableau contenant les iPads
+     */
     public function devices(): array {
         return $this->getData("devices");
     }
