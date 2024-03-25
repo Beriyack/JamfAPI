@@ -28,13 +28,13 @@ class JamfAPI {
     public function applications(): array {
         return $this->getData("apps");
     }
-
-    public function classes(): array {
-        return $this->getData("classes");
-    }
-
+    
     public function devices(): array {
         return $this->getData("devices");
+    }
+
+    public function devices_applications(string $UDID) : array {
+        return $this->getData("devices/" . $UDID . "/apps");
     }
 
     public function devices_groups(): array {

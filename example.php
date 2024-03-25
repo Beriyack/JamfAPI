@@ -5,5 +5,9 @@ $key = "my_key";
 
 $jamf = new JamfAPI($networdID, $key);
 
-$apps = $jamf->applications();
-var_dump($apps[1]);
+$UDID_iPad = "UDID_iPad";
+
+$apps = $jamf->applications(); // Liste des applications
+$apps = $jamf->devices(); // Liste des iPads
+$apps = $jamf->devices_applications($UDID_iPad); // Liste des applications sur un iPad
+$apps = $jamf->devices_groups(); // Liste des groupes et classes
